@@ -1,120 +1,81 @@
-# Heart Disease Prediction using Machine Learning 💖
-Heart Disease Prediction
+# 🎤 Emotion Recognition from Speech using Deep Learning
 
-Description 📝
-This project aims to predict the likelihood of heart disease using various machine learning techniques. Its primary goal is to classify whether an individual has heart disease or not, based on a set of medical attributes. This is a classification problem, where the model predicts 'has heart disease' or 'does not have heart disease'.
+This repository contains a deep learning pipeline for recognizing human emotions (e.g., happy, sad, angry) from raw audio speech. The model is trained on publicly available datasets and uses a combination of CNN and LSTM architectures to capture both local and sequential features of speech.
 
-Features ✨
-Data Loading: Loads the heart disease dataset from a CSV file.
+## 🚀 Project Overview
 
-Data Preprocessing: Handles missing values and prepares the data for the machine learning model.
+- **Goal:** Build a robust deep learning model that can classify emotions from speech audio using features like MFCCs.
+- **Approach:** Deep learning with CNN + LSTM using extracted MFCCs, Delta & Delta-Delta features.
+- **Datasets Used:** RAVDESS, TESS, EMO-DB (flexible to integrate)
 
-Feature Scaling: Standardizes numerical features to ensure optimal model performance.
+## 📁 Project Structure
 
-Data Splitting: Divides the dataset into training and testing sets for robust model evaluation.
+├── emotion_recognizer_dl_final.py # Training script
+├── inference_script_re_provide.py # Inference script for new audio prediction
+├── speech_emotion_dl_model.h5 # Saved Keras model
+├── label_encoder_dl.pkl # Saved label encoder for mapping predictions
+├── /RAVDESS # Dataset folder (not included)
+└── README.md # Project documentation
 
-Model Training: Utilizes a Logistic Regression model to predict the presence of heart disease.
+## 🧠 Features
 
-Model Evaluation: Assesses the model's performance using key metrics like Accuracy, Classification Report (Precision, Recall, F1-score), and Confusion Matrix.
+- 📌 **MFCCs + Deltas**: Extract Mel-Frequency Cepstral Coefficients (MFCC), Delta & Delta-Delta for richer representations
+- 🧱 **Model Architecture**: Combines CNN (Conv1D, MaxPooling) and LSTM to learn temporal dependencies
+- 💾 **Model Saving**: Model is saved using `.h5`, and encoder via `joblib`
+- 🎯 **Inference Ready**: Inference script to test on unseen `.wav` audio files
+- 📊 **Evaluation Metrics**: Accuracy, Precision, Recall, F1-Score via classification report
 
-Dataset 📊
-This project uses the Cleveland Heart Disease Dataset.
+## 🛠️ Tech Stack
 
-File Name: heart_disease_cleveland.csv
+- Python 3.9+
+- TensorFlow / Keras
+- Librosa
+- Scikit-learn
+- Pandas, NumPy, Matplotlib, Seaborn
+- Joblib (for saving encoder)
 
-Source: UCI Machine Learning Repository
+## 📦 How to Run
 
-Description: This dataset contains 303 records and 14 attributes, including patient age, sex, chest pain type, resting blood pressure, cholesterol levels, and the presence of heart disease (the target variable).
+### 🔹 1. Train the Model
 
-Technologies Used 🛠️
-Python
+```bash
+python emotion_recognizer_dl_final.py
 
-Libraries:
 
-pandas (for data manipulation)
+Make sure the dataset path in the script points to your local RAVDESS folder
+Model and label encoder will be saved upon completion
 
-numpy (for numerical operations)
+🔹 2. Run Inference
+bash
+Copy
+Edit
+python inference_script_re_provide.py
+Modify the script to test with your own .wav file
 
-scikit-learn (for machine learning models and utilities)
+You will get a predicted emotion as output
 
-matplotlib (for plotting and visualizations)
+🔍 Sample Output
 
-seaborn (for enhanced data visualizations)
+🎧 Input Audio: 03-01-05-01-01-01-01.wav
+🎯 Predicted Emotion: Angry
+📊 Probabilities: {'Angry': 0.94, 'Happy': 0.03, 'Neutral': 0.02, 'Sad': 0.01}
 
-Setup Instructions 🚀
-Follow these steps to set up and run the project on your local machine:
+📚 Dataset Reference
 
-Clone the Repository:
+RAVDESS
+TESS
+EMO-DB
 
-git clone https://github.com/YourUsername/YourRepoName.git
-cd YourRepoName/ml_task_4_folder # Navigate to your project's main folder
+🙌 Acknowledgements
+This project leverages powerful speech processing libraries like Librosa and the capabilities of deep neural networks for audio understanding. Huge thanks to open-source contributors and dataset curators for enabling projects like this.
 
-(Replace YourUsername and YourRepoName with your actual GitHub username and repository name. Also, replace ml_task_4_folder with the specific folder path where your heart_disease_prediction.py file resides, e.g., code alpha/ml task 2/ml task 4)
 
-Create a Virtual Environment:
-It's best practice to create a virtual environment to manage project dependencies effectively.
+💡 Future Enhancements
+Add support for noise filtering & audio augmentation
+Extend to real-time emotion recognition using mic input
+Build web app interface using Streamlit or Flask
 
-python -m venv ml_venv
 
-Activate the Virtual Environment:
 
-Windows:
 
-.\ml_venv\Scripts\activate
 
-macOS/Linux:
-
-source ml_venv/bin/activate
-
-(Your terminal prompt should now start with (ml_venv).)
-
-Install Dependencies:
-Once the virtual environment is active, install all required libraries using the requirements.txt file.
-
-pip install -r requirements.txt
-
-(If you don't have a requirements.txt file, you can create one by running pip freeze > requirements.txt after activating your ml_venv, and then install them manually: pip install pandas numpy scikit-learn matplotlib seaborn)
-
-Place the Dataset:
-Ensure that the heart_disease_cleveland.csv file is placed in the same folder as your heart_disease_prediction.py script.
-
-Usage ▶️
-To run the project, execute the main script while your virtual environment is activated:
-
-python heart_disease_prediction.py
-
-This script will process the data, train the model, and print the evaluation results to your terminal.
-
-Results and Evaluation 📈
-The model's performance was evaluated using the following metrics:
-
-Accuracy: The overall percentage of correctly predicted instances by the model.
-
-Precision: Out of all cases predicted as positive, how many were actually positive.
-
-Recall: Out of all actual positive cases, how many were correctly identified by the model.
-
-F1-Score: The harmonic mean of Precision and Recall, providing a balance between the two.
-
-Confusion Matrix: A detailed breakdown showing true positives, true negatives, false positives, and false negatives.
-
-Sample Output (Values may vary slightly based on your run):
-
---- Model Evaluation ---
-Accuracy: 0.8876
-
-Classification Report:
-              precision    recall  f1-score   support
-
-           0       0.89      0.90      0.90        30
-           1       0.88      0.87      0.88        29
-
-    accuracy                           0.89        59
-   macro avg       0.89      0.89      0.89        59
-weighted avg       0.89      0.89      0.89        59
-
-Confusion Matrix:
-[[27  3]
- [ 4 25]]
-
-(You can update the Accuracy, Classification Report, and Confusion Matrix values here with your actual output from running the script.)
