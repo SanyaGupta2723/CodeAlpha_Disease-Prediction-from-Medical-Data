@@ -46,7 +46,6 @@ This repository contains a deep learning pipeline for recognizing human emotions
 ```bash
 python emotion_recognizer_dl_final.py
 
-
 Make sure the dataset path in the script points to your local RAVDESS folder
 Model and label encoder will be saved upon completion
 
@@ -64,7 +63,7 @@ You will get a predicted emotion as output
 🎧 Input Audio: 03-01-05-01-01-01-01.wav
 🎯 Predicted Emotion: Angry
 📊 Probabilities: {'Angry': 0.94, 'Happy': 0.03, 'Neutral': 0.02, 'Sad': 0.01}
-
+```
 📚 Dataset Reference
 
 RAVDESS
