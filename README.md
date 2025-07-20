@@ -50,9 +50,6 @@ Make sure the dataset path in the script points to your local RAVDESS folder
 Model and label encoder will be saved upon completion
 
 🔹 2. Run Inference
-bash
-Copy
-Edit
 python inference_script_re_provide.py
 Modify the script to test with your own .wav file
 
@@ -67,11 +64,15 @@ You will get a predicted emotion as output
 📚 Dataset Reference
 
 RAVDESS
+
 TESS
+
 EMO-DB
 
 🙌 Acknowledgements
 This project leverages powerful speech processing libraries like Librosa and the capabilities of deep neural networks for audio understanding. Huge thanks to open-source contributors and dataset curators for enabling projects like this.
+
+
 
 
 💡 Future Enhancements
