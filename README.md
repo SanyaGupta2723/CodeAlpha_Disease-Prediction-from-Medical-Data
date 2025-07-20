@@ -13,9 +13,13 @@ This repository contains a deep learning pipeline for recognizing human emotions
 ├── emotion_recognizer_dl_final.py # Training script
 
 ├── inference_script_re_provide.py # Inference script for new audio prediction
+
 ├── speech_emotion_dl_model.h5 # Saved Keras model
+
 ├── label_encoder_dl.pkl # Saved label encoder for mapping predictions
+
 ├── /RAVDESS # Dataset folder (not included)
+
 └── README.md # Project documentation
 
 ## 🧠 Features
