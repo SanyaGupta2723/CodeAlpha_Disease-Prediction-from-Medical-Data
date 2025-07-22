@@ -14,7 +14,7 @@ import seaborn as sns # For better visualizations
 # --- Configuration ---
 # IMPORTANT: Set the correct path to your heart_disease_cleveland.csv file
 # Since the CSV file is in the same folder as this script, use a relative path.
-DATA_PATH = "heart_disease_cleveland.csv" # <-- This should be correct now
+DATA_PATH = "PATH WHERE HEART_DISEASE_CLEVELAND IS DOWNLOADED" # <-- This should be correct now
 
 # Define column names as the dataset does not come with a header
 # These names are standard for the Cleveland Heart Disease dataset
