@@ -35,8 +35,9 @@ Target Column: target
 🔄 Workflow Summary
 
 🔹 1. Data Loading
+```
 df = pd.read_csv("heart_disease.csv")
-
+```
 🔹 2. Data Cleaning & Preprocessing
 Remove rows with ? in ca or thal
 Convert target to binary (0: no disease, 1: disease)
